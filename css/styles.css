@@ -1,0 +1,728 @@
+/* ==========================================================================
+   LA FÁBRICA MÁGICA DE LAS PALABRAS - ESTILOS PRINCIPALES
+   Diseño Frontend UI/UX infantil: Accesible, lúdico y responsivo
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. IMPORTACIÓN DE TIPOGRAFÍAS
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. VARIABLES CSS (CUSTOM PROPERTIES - PALETA APROBADA)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta cromática oficial */
+  --color-bg: #FFFDF9;              /* Porcelain: Fondo general cálido y suave */
+  --color-primary: #35A7FF;         /* Cool Sky: Botones principales y acentos interactivos */
+  --color-primary-hover: #1e96f3;
+  --color-secondary: #80A1D4;       /* Wisteria Blue: Contenedores, tarjetas secundarias y bordes */
+  --color-secondary-soft: #EEF3FA;  /* Tono muy suave para fondos interiores */
+  --color-success: #48BF84;         /* Emerald: Alertas positivas, aciertos y logros */
+  --color-success-hover: #3ca36f;
+  --color-magic: #791E94;           /* Royal Orchid: Títulos principales, marca y robot */
+  --color-magic-light: #9B3DB8;
+  --color-magic-soft: #F8EDFB;
+  
+  /* Colores de soporte y neutros */
+  --color-surface: #FFFFFF;
+  --color-text-main: #2C3539;
+  --color-text-muted: #64748B;
+  --color-border-subtle: rgba(128, 161, 212, 0.25);
+  
+  /* Sistema de diseño: bordes, sombras y transiciones */
+  --font-family-base: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 50px;
+  
+  --shadow-soft: 0 10px 28px -6px rgba(121, 30, 148, 0.08), 0 4px 10px -2px rgba(53, 167, 255, 0.06);
+  --shadow-hover: 0 16px 36px -4px rgba(121, 30, 148, 0.16), 0 8px 16px -2px rgba(53, 167, 255, 0.12);
+  --shadow-card: 0 8px 20px rgba(128, 161, 212, 0.14);
+  
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-normal: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --header-height: 82px;
+}
+
+/* --------------------------------------------------------------------------
+   3. ESTILOS GLOBALES Y PATRÓN DE FONDO
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  margin: 0;
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Fija el fondo para que no se mueva al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+    /* Patrón SVG sutil con letras, estrellas y libros para una atmósfera educativa y lúdica */
+  background-image: url(../assets/images/fondoNormal.jpeg);
+  background-size: cover;
+  background-repeat: repeat; /* O ajusta el tamaño si el patrón es muy grande */
+  
+  /* ¡AQUÍ ESTÁ LA CLAVE! LA OPACIDAD */
+  opacity: 0.4; /* Muy sutil, entre 0.03 y 0.08 funciona bien para niños */
+  
+  /* Asegura que el fondo esté detrás de todo el contenido */
+  z-index: -1; 
+}
+
+/* Tipografía y jerarquías */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER / BANNER SUPERIOR FIJO
+   -------------------------------------------------------------------------- */
+.magic-navbar {
+  height: var(--header-height);
+  background: rgba(255, 253, 249, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--color-border-subtle);
+  box-shadow: 0 4px 20px rgba(128, 161, 212, 0.12);
+  transition: var(--transition-fast);
+  z-index: 1030;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-avatar {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--color-magic-soft) 0%, #FFFFFF 100%);
+  border: 2.5px solid var(--color-magic);
+  border-radius: 50%;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(121, 30, 148, 0.18);
+  transition: var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.brand-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.brand-wrapper:hover .brand-avatar {
+  transform: rotate(10deg) scale(1.08);
+  border-color: var(--color-primary);
+}
+
+.brand-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-magic);
+  line-height: 1.15;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title .brand-subtitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Acciones del Navbar */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-points {
+  background: linear-gradient(135deg, #FFF9E6, #FFF0B8);
+  border: 2px solid #FFD166;
+  color: #B37D00;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 8px rgba(255, 209, 102, 0.25);
+}
+
+/* Botón Hamburguesa Estilizado */
+.btn-magic-menu {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-magic-soft);
+  border: 2px solid var(--color-magic);
+  color: var(--color-magic);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  padding: 0;
+}
+
+.btn-magic-menu .bar {
+  width: 22px;
+  height: 3px;
+  background-color: var(--color-magic);
+  border-radius: 4px;
+  transition: var(--transition-normal);
+}
+
+.btn-magic-menu:hover,
+.btn-magic-menu:focus {
+  background-color: var(--color-magic);
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(121, 30, 148, 0.25);
+}
+
+.btn-magic-menu:hover .bar,
+.btn-magic-menu:focus .bar {
+  background-color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   5. MENÚ OFFCANVAS (PANEL LATERAL RESPONSIVO)
+   -------------------------------------------------------------------------- */
+.magic-offcanvas {
+  background-color: var(--color-bg);
+  border-left: 3px solid var(--color-magic);
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+  box-shadow: -10px 0 30px rgba(121, 30, 148, 0.12);
+  width: 320px;
+}
+
+.magic-offcanvas .offcanvas-header {
+  border-bottom: 2px solid var(--color-border-subtle);
+  padding: 1.5rem 1.25rem;
+}
+
+.magic-offcanvas .offcanvas-title {
+  color: var(--color-magic);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.magic-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 1.25rem 0;
+}
+
+.magic-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border-subtle);
+  transition: var(--transition-normal);
+}
+
+.magic-nav-item .nav-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  background-color: var(--color-secondary-soft);
+  color: var(--color-primary);
+  transition: var(--transition-fast);
+}
+
+.magic-nav-item:hover {
+  transform: translateX(-4px);
+  background-color: #FFFFFF;
+  border-color: var(--color-primary);
+  color: var(--color-magic);
+  box-shadow: var(--shadow-card);
+}
+
+.magic-nav-item:hover .nav-icon {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.magic-nav-item.active {
+  background-color: var(--color-magic-soft);
+  border-color: var(--color-magic);
+  color: var(--color-magic);
+}
+
+.magic-nav-item.active .nav-icon {
+  background-color: var(--color-magic);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   6. CONTENEDOR PRINCIPAL Y TARJETAS "SOFT-CARD"
+   -------------------------------------------------------------------------- */
+.main-wrapper {
+  padding: 2.5rem 0 4rem;
+}
+
+/* Definimos la animación de pulso */
+@keyframes pulse-sutil {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Crece un 5% */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.soft-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  animation: pulse-sutil 2s infinite ease-in-out;
+}
+
+.soft-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-secondary);
+}
+
+/* Tarjeta de Bienvenida del Robot Guardián (Hero) */
+.hero-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF8FF 60%, var(--color-secondary-soft) 100%);
+  border: 2.5px solid rgba(121, 30, 148, 0.2);
+  border-radius: 30px;
+  padding: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.robot-container {
+  text-align: center;
+  position: relative;
+}
+
+.robot-mascot {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 18px rgba(121, 30, 148, 0.15));
+  animation: robotFloat 3.6s ease-in-out infinite;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.robot-mascot:hover {
+  transform: scale(1.06) rotate(3deg);
+}
+
+.robot-mascot:active {
+  transform: scale(0.96);
+}
+
+@keyframes robotFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: robotBounce 0.6s cubic-bezier(0.28, 0.84, 0.42, 1) !important;
+}
+
+.is-talking {
+  animation: robotTalking 1.2s ease-in-out infinite !important;
+  filter: drop-shadow(0 14px 22px rgba(121, 30, 148, 0.28)) !important;
+}
+
+@keyframes robotTalking {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.05) translateY(-6px) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.02) translateY(-2px) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.04) translateY(-5px) rotate(2deg);
+  }
+}
+
+@keyframes robotBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-18px) scale(1.08) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.04) rotate(4deg);
+  }
+  75% {
+    transform: translateY(-2px) scale(1.01) rotate(-1deg);
+  }
+}
+
+/* Globo de diálogo interactivo del Robot */
+.speech-bubble {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 1.5rem 1.75rem;
+  border: 2px solid var(--color-secondary);
+  box-shadow: 0 8px 24px rgba(128, 161, 212, 0.18);
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: -14px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 14px solid var(--color-secondary);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  top: 42px;
+  left: -11px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 12px solid #FFFFFF;
+}
+
+/* Ajuste responsive de flecha de globo en pantallas chicas */
+@media (max-width: 991.98px) {
+  .speech-bubble::before,
+  .speech-bubble::after {
+    display: none;
+  }
+}
+
+.speech-title {
+  color: var(--color-magic);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.speech-text {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.speech-highlight {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   7. MÓDULOS DE MINIJUEGOS (CARDS GRID)
+   -------------------------------------------------------------------------- */
+@keyframes aura-magica {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(53, 167, 255, 0.3); /* Usando tu color Cool Sky (#35A7FF) */
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(53, 167, 255, 0.9), 0 0 30px rgba(121, 30, 148, 0.5); /* Se mezcla con Royal Orchid */
+  }
+}
+
+.section-heading {
+  margin-bottom: 1.8rem;
+  border-radius: 25px;
+  cursor: pointer;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  animation: aura-magica 2s infinite ease-in-out;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  color: var(--color-magic);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.module-card {
+  padding: 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.module-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* Variaciones temáticas por paleta */
+.card-sky .module-icon-box {
+  background-color: rgba(53, 167, 255, 0.15);
+  color: var(--color-primary);
+}
+.card-sky:hover {
+  border-color: var(--color-primary);
+}
+
+.card-wisteria .module-icon-box {
+  background-color: rgba(128, 161, 212, 0.2);
+  color: #557EBA;
+}
+.card-wisteria:hover {
+  border-color: var(--color-secondary);
+}
+
+.card-orchid .module-icon-box {
+  background-color: var(--color-magic-soft);
+  color: var(--color-magic);
+}
+.card-orchid:hover {
+  border-color: var(--color-magic);
+}
+
+.card-emerald .module-icon-box {
+  background-color: rgba(72, 191, 132, 0.18);
+  color: var(--color-success);
+}
+.card-emerald:hover {
+  border-color: var(--color-success);
+}
+
+.module-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.module-desc {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* --------------------------------------------------------------------------
+   8. BOTONES Y COMPONENTES INTERACTIVOS
+   -------------------------------------------------------------------------- */
+.btn-kid {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-normal);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-kid:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-kid:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-primary-kid {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(53, 167, 255, 0.3);
+}
+.btn-primary-kid:hover {
+  background-color: var(--color-primary-hover);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(53, 167, 255, 0.4);
+}
+
+.btn-magic-kid {
+  background-color: var(--color-magic);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(121, 30, 148, 0.3);
+}
+.btn-magic-kid:hover {
+  background-color: var(--color-magic-light);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(121, 30, 148, 0.4);
+}
+
+.btn-emerald-kid {
+  background-color: var(--color-success);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(72, 191, 132, 0.3);
+}
+.btn-emerald-kid:hover {
+  background-color: var(--color-success-hover);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(72, 191, 132, 0.4);
+}
+
+.btn-secondary-kid {
+  background-color: var(--color-secondary-soft);
+  color: var(--color-magic);
+  border: 2px solid var(--color-secondary);
+}
+.btn-secondary-kid:hover {
+  background-color: #FFFFFF;
+  color: var(--color-magic);
+  border-color: var(--color-magic);
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER LÚDICO Y ACCESIBLE
+   -------------------------------------------------------------------------- */
+.magic-footer {
+  background-color: #FFFFFF;
+  border-top: 2px solid var(--color-border-subtle);
+  padding: 1.75rem 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.magic-footer a {
+  color: var(--color-magic);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.magic-footer a:hover {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   10. ADAPTABILIDAD RESPONSIVE (MEDIA QUERIES)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  :root {
+    --header-height: 72px;
+  }
+  
+  .brand-title {
+    font-size: 1.15rem;
+  }
+  
+  .brand-avatar {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .hero-card {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .speech-title {
+    font-size: 1.35rem;
+  }
+  
+  .speech-text {
+    font-size: 1.05rem;
+  }
+  
+  .robot-mascot {
+    max-width: 170px;
+    margin-bottom: 1rem;
+  }
+  
+  .badge-points {
+    display: none; /* Se oculta en móviles muy pequeños para dar prioridad a la marca */
+  }
+}
