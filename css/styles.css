@@ -12,23 +12,37 @@
    2. VARIABLES CSS (CUSTOM PROPERTIES - PALETA APROBADA)
    -------------------------------------------------------------------------- */
 :root {
-  /* Paleta cromática oficial */
-  --color-bg: #FFFDF9;              /* Porcelain: Fondo general cálido y suave */
-  --color-primary: #35A7FF;         /* Cool Sky: Botones principales y acentos interactivos */
-  --color-primary-hover: #1e96f3;
-  --color-secondary: #80A1D4;       /* Wisteria Blue: Contenedores, tarjetas secundarias y bordes */
-  --color-secondary-soft: #EEF3FA;  /* Tono muy suave para fondos interiores */
-  --color-success: #48BF84;         /* Emerald: Alertas positivas, aciertos y logros */
-  --color-success-hover: #3ca36f;
-  --color-magic: #791E94;           /* Royal Orchid: Títulos principales, marca y robot */
-  --color-magic-light: #9B3DB8;
-  --color-magic-soft: #F8EDFB;
-  
-  /* Colores de soporte y neutros */
+/* Fondo general brillante, cálido y limpio */
+  --color-bg: #FFF9F0; 
   --color-surface: #FFFFFF;
-  --color-text-main: #2C3539;
+
+  /* Color Primario (Azul vibrante didáctico) */
+  --color-primary: #00bfff;     /* Cool Sky más vivo */
+  --color-primary-hover: #0e6f8d;
+
+  /* Color Secundario (Azul wisteria / soporte) */
+  --color-secondary: #0baf39;   
+  --color-secondary-soft: #EEF3FA;
+
+  /* Tonos Mágicos y de Identidad (Palabrín) */
+  --color-magic: #9b5de5;       /* Royal Orchid más brillante y divertido */
+  --color-magic-light: #b37ee8;
+  --color-magic-soft: #F4EBFB;
+
+  /* Nuevos Tonos Arcoíris Didácticos para Minijuegos */
+  --color-rojo-alegre: #FF5964;    /* Para alertas divertidas y destacar acciones */
+  --color-amarillo-sol: #FFD166;   /* Para estrellas, monedas y fondos de atención */
+  --color-rosa-fucsia: #f15bb5;    /* Toque vibrante y equilibrado */
+
+  /* Colores de Acierto y Éxito */
+  --color-success: #06D6A0;        /* Verde menta brillante estilo juego didáctico */
+  --color-success-hover: #05b385;
+
+  /* Textos y bordes */
+  --color-text-main: #2b2d42;
   --color-text-muted: #64748B;
-  --color-border-subtle: rgba(128, 161, 212, 0.25);
+  --color-border-subtle: rgba(17, 138, 178, 0.25);
+  --border-radius-kid: 20px;       /* Bordes redondeados muy amigables */
   
   /* Sistema de diseño: bordes, sombras y transiciones */
   --font-family-base: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -103,6 +117,38 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 20px rgba(128, 161, 212, 0.12);
   transition: var(--transition-fast);
   z-index: 1030;
+}
+
+@keyframes palpito-rapido {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06); /* Crece un 6% */
+  }
+}
+
+/* Clase para aplicar el efecto */
+.btn-palpito {
+  animation: palpito-rapido 0.8s infinite ease-in-out;
+}
+
+/* Estilo para el contenedor del video */
+.video-wrapper {
+  max-width: 600px;
+  margin: auto;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.video-wrapper video {
+  border: 4px solid var(--color-primary);
+  background-color: #000;
+  max-height: 400px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .brand-wrapper {

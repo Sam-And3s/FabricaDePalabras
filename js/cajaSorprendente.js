@@ -245,6 +245,7 @@ function initCajaSorprendenteGame() {
   const spotlightTitle = document.getElementById('spotlightTitle');
   const spotlightDialogText = document.getElementById('spotlightDialogText');
   const btnWordSaid = document.getElementById('btnWordSaid');
+  const btnRepeatAudio = document.getElementById('btnRepeatAudio');
 
   // ------------------------------------------------------------------------
   // 3. INICIALIZACIÓN Y EVENTOS DE PANTALLA
@@ -341,7 +342,8 @@ function initCajaSorprendenteGame() {
 
     // Estado inicial del diálogo: Palabrín pronuncia primero la palabra
     spotlightDialogText.innerHTML = `Escucha con atención: <strong>"¡${item.name}!"</strong>`;
-    btnWordSaid.style.display = 'none'; // Oculto hasta que termine la invitación a hablar
+    if (btnWordSaid) btnWordSaid.style.display = 'none'; // Oculto hasta que termine la invitación a hablar
+    if (btnRepeatAudio) btnRepeatAudio.style.display = 'none'; // Oculto hasta que termine la invitación a hablar
 
     // Mostrar modal con efecto de zoom
     spotlightModal.classList.add('is-active');
@@ -368,13 +370,39 @@ function initCajaSorprendenteGame() {
 
       // Reproducir SOLO AHORA el audio de incentivo (ahora1.mp3)
       playPromptAudio(`¡Ahora dilo tú! ${item.name}`, () => {
-        // Mostrar botón "¡Ya la dije!" o "Siguiente palabra" una vez termine el prompt
+        // Mostrar botones de acción una vez termine el prompt
+        if (btnRepeatAudio) {
+          btnRepeatAudio.style.display = 'inline-flex';
+          btnRepeatAudio.disabled = false;
+        }
         if (btnWordSaid) {
           btnWordSaid.style.display = 'inline-flex';
+          btnWordSaid.disabled = false;
           btnWordSaid.focus();
         }
       });
     }, 300);
+  }
+
+  // Evento al presionar "Repetir Audio"
+  if (btnRepeatAudio) {
+    btnRepeatAudio.addEventListener('click', () => {
+      if (!currentActiveObject || isWordAudioPlaying) return;
+
+      // Deshabilitar temporalmente los botones mientras se reproduce el audio de la palabra
+      btnRepeatAudio.disabled = true;
+      if (btnWordSaid) btnWordSaid.disabled = true;
+
+      spotlightDialogText.innerHTML = `Escucha de nuevo: <strong>"¡${currentActiveObject.name}!"</strong> 🔊`;
+
+      playObjectAudio(currentActiveObject.name, currentActiveObject.audio, () => {
+        // Cuando termine de repetirse el audio del objeto
+        if (btnRepeatAudio) btnRepeatAudio.disabled = false;
+        if (btnWordSaid) btnWordSaid.disabled = false;
+
+        spotlightDialogText.innerHTML = `¡Ahora inténtalo tú! Di en voz alta: <strong>"¡${currentActiveObject.name}!"</strong> 🗣️✨`;
+      });
+    });
   }
 
   // Evento al presionar "¡Ya la dije! / Siguiente palabra"
@@ -403,6 +431,8 @@ function initCajaSorprendenteGame() {
     if (spotlightModal) {
       spotlightModal.classList.remove('is-active');
     }
+    if (btnRepeatAudio) btnRepeatAudio.disabled = false;
+    if (btnWordSaid) btnWordSaid.disabled = false;
     currentActiveObject = null;
   }
 
@@ -484,7 +514,7 @@ function initCajaSorprendenteGame() {
     if (audioPath) {
       const audio = new Audio();
       currentWordAudio = audio;
-      audio.volume = 0.9;
+      audio.volume = 1;
       let hasFailed = false;
 
       const triggerWordFallback = () => {

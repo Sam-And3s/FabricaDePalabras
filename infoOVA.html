@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Fábrica Mágica de las Palabras</title>
+  <link rel="icon" href="assets/images/smile.png" type="image/png">
+
+  <!-- Meta etiquetas SEO y experiencia de usuario -->
+  <meta name="description"
+    content="Plataforma web educativa e interactiva diseñada para que los niños aprendan letras, sílabas y palabras jugando con un robot guardián.">
+  <meta name="theme-color" content="#791E94">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons CDN (iconos lúdicos y accesibles) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts: Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / BANNER SUPERIOR FIJO
+       ======================================================================== -->
+  <header class="navbar navbar-expand fixed-top magic-navbar">
+    <div class="container-xl d-flex justify-content-between align-items-center">
+
+      <!-- Marca y Avatar del Robot Guardián -->
+      <a class="brand-wrapper" href="#inicio" title="Ir al inicio de La Fábrica Mágica de las Palabras">
+        <div class="brand-avatar">
+          <img src="assets/images/smile.png" alt="Robot Guardián sonriente">
+        </div>
+        <div class="brand-title">
+          <span>La Fábrica Mágica</span>
+          <span class="brand-subtitle">de las Palabras ✨</span>
+        </div>
+      </a>
+
+      <!-- Acciones de barra superior: Puntuación y Botón Hamburguesa -->
+      <div class="nav-actions">
+        <!-- Botón Hamburguesa que despliega el panel lateral Offcanvas -->
+        <button id="btnMagicMenu" class="btn-magic-menu" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Abrir menú de navegación">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. MENÚ OFFCANVAS (PANEL LATERAL RESPONSIVO)
+       ======================================================================== -->
+  <div class="offcanvas offcanvas-end magic-offcanvas" tabindex="-1" id="offcanvasNav"
+    aria-labelledby="offcanvasNavLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavLabel">
+        <i class="bi bi-compass text-primary"></i> Menú Mágico
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      <!-- Lista de Módulos y Enlaces de Navegación -->
+      <nav class="magic-nav-list">
+        <a href="index.html" data-audio="assets/audio/inicio.mp3" class="magic-nav-item">
+          <span class="nav-icon"><i class="bi bi-house-door-fill"></i></span>
+          <span>Inicio</span>
+        </a>
+        <a href="CajaSorprendente.html" data-audio="assets/audio/caja.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M1.735 17.832l12.054 6.081 2.152-6.081-12.053-5.758zM16.211 17.832l2.045 6.027 12.484-6.081-2.422-5.704zM-0.247 7.212l4.144 4.843 12.053-6.134-3.928-5.005zM32.247 7.319 20.246 0.916l-4.09 5.005 12.162 6.134zM3.175 19.353 3.134 25.192l12.713 5.893v-10.98l-1.816 4.736zM16.291 20.105v10.979l12.674-5.893v-5.799l-10.99 5.46z" />
+            </svg>
+          </span>
+          <span>La Caja de las Imágenes Sorprendentes</span>
+        </a>
+        <a href="QueSonido.html" data-audio="assets/audio/sonido.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path d="M18 30v-2a10.0114 10.0114 0 0 0 10-10h2a12.0134 12.0134 0 0 1-12 12z" />
+              <path d="M18 26v-2a6.0066 6.0066 0 0 0 6-6h2a8.0092 8.0092 0 0 1-8 8z" />
+              <path d="M18 22v-2a2.0023 2.0023 0 0 0 2-2h2a4.0042 4.0042 0 0 1-4 4z" />
+              <path
+                d="M10 2a9.01 9.01 0 0 0-9 9h2a7 7 0 0 1 14 0 7.09 7.09 0 0 1-3.501 6.1348L13 17.4229v3.0732a2.9354 2.9354 0 0 1-0.9009 2.1514 4.1824 4.1824 0 0 1-4.6318 1.03A4.0918 4.0918 0 0 1 5 20H3a6.1156 6.1156 0 0 0 3.6694 5.5117 5.7822 5.7822 0 0 0 2.3145 0.4863 6.5854 6.5854 0 0 0 4.4785-1.888A4.94 4.94 0 0 0 15 20.4961v-1.9424A9.1077 9.1077 0 0 0 19 11a9.01 9.01 0 0 0-9-9z" />
+              <path
+                d="M9.28 8.0825A3.0061 3.0061 0 0 1 13 11h2a4.9786 4.9786 0 0 0-1.8843-3.9111 5.0414 5.0414 0 0 0-4.2807-0.9566 4.95 4.95 0 0 0-3.7027 3.7027 5.0318 5.0318 0 0 0 2.3037 5.4585A3.0777 3.0777 0 0 1 9 17.9229V20h2v-2.0771a5.0608 5.0608 0 0 0-2.5371-4.3458A3.0016 3.0016 0 0 1 9.28 8.0825z" />
+            </svg>
+          </span>
+          <span>¿Qué sonido estas escuchando?</span>
+        </a>
+        <a href="QueVes.html" data-audio="assets/audio/cuentame.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" color="currentColor" fill="currentColor" stroke-width="2" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" width="25" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path fill="none" d="M5.5 21C2.7 21 1 17 1 12s1.7-9 4.5-9C8.2 3 10 7 10 12s-1.8 9-4.5 9z" />
+              <path fill="none" d="M18.5 21c-2.7 0-4.5-4-4.5-9s1.8-9 4.5-9c2.8 0 4.5 4 4.5 9s-1.7 9-4.5 9z" />
+              <circle cx="4" cy="12" r="3" />
+              <circle cx="17" cy="12" r="3" />
+            </svg>
+          </span>
+          <span>¡cuéntame que estás viendo¡</span>
+        </a>
+        <a href="unirPalabras.html" data-audio="assets/audio/unamos.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M28 16a1 1 0 0 1-1 1H16a1 1 0 0 1 0-2h11a1 1 0 0 1 1 1zM16 9h11a1 1 0 0 0 0-2H16a1 1 0 0 0 0 2zM27 23H16a1 1 0 0 0 0 2h11a1 1 0 0 0 0-2zM10.2925 5.2925 7 8.5863 5.7075 7.2925a1.0006 1.0006 0 0 0-1.415 1.415l2 2a1 1 0 0 0 1.415 0l4-4a1.0006 1.0006 0 0 0-1.415-1.415zM10.2925 13.2925 7 16.5863 5.7075 15.2925a1.0006 1.0006 0 0 0-1.415 1.415l2 2a1 1 0 0 0 1.415 0l4-4a1.0006 1.0006 0 0 0-1.415-1.415zM10.2925 21.2925 7 24.5863 5.7075 23.2925a1.0006 1.0006 0 0 0-1.415 1.415l2 2a1 1 0 0 0 1.415 0l4-4a1.0006 1.0006 0 0 0-1.415-1.415z" />
+            </svg>
+          </span>
+          <span>Unamos las palabras con sus imágenes</span>
+        </a>
+        <a href="misionPalabrin.html" data-audio="assets/audio/mision.mp3" class="magic-nav-item">
+          <span class="nav-icon"><i class="bi bi-trophy-fill"></i></span>
+          <span>La gran misión de Palabrín</span>
+        </a>
+        <a href="infoOVA.html" data-audio="assets/audio/OVA.mp3" class="magic-nav-item active">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect width="2" height="20" x="2" y="6" />
+              <rect width="2" height="24" x="6" y="4" />
+              <rect width="12" height="2" x="14" y="22" />
+              <rect width="12" height="2" x="14" y="16" />
+              <path
+                d="M29.7 9.3l-7-7C22.5 2.1 22.3 2 22 2H12c-1.1 0-2 0.9-2 2v24c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2V10c0-0.3-0.1-0.5-0.3-0.7zM22 4.4 27.6 10H22zM28 28H12V4h8v6c0 1.1 0.9 2 2 2h6z" />
+            </svg>
+          </span>
+          <span>Sobre la OVA</span>
+        </a>
+      </nav>
+
+      <!-- Pie del menú con recordatorio pedagógico -->
+      <div class="text-center p-3 rounded-4 bg-white border border-info-subtle mt-4">
+        <small class="text-muted fw-bold">
+          <i class="bi bi-lightbulb text-warning me-1"></i> Aprender jugando es la clave.
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       3. CONTENEDOR PRINCIPAL (MAIN)
+       ======================================================================== -->
+  <main class="main-wrapper container py-5"  id="inicio">
+    <div class="container-xl row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <!-- Tarjeta contenedora principal estilo didáctico -->
+        <div class="card border-0 shadow-lg p-4 p-md-5 rounded-4" style="background-color: var(--color-surface); border: 3px solid var(--color-primary) !important;">
+          
+          <h1 class="text-center mb-4 fw-bold" style="color: var(--color-magic);">
+            <i class="bi bi-stars"></i> Conoce el Proyecto
+          </h1>
+
+          <!-- Introducción -->
+          <section class="mb-5">
+            <h3 class="fw-bold pb-2 border-bottom" style="color: var(--color-primary);">1. Introducción</h3>
+            <p class="text-secondary mt-3 lh-lg">
+              En la actualidad, la educación infantil enfrenta importantes desafíos relacionados con la comunicación, el desarrollo del lenguaje y los procesos fonológicos, los cuales son fundamentales para el aprendizaje, la expresión de ideas y la interacción de los niños desde sus primeros años de vida. Durante esta etapa, es importante brindar experiencias que permitan fortalecer sus habilidades comunicativas, ampliar su vocabulario y mejorar progresivamente su pronunciación y comprensión del lenguaje.
+            </p>
+            <p class="text-secondary lh-lg">
+              En este contexto, el uso de herramientas digitales se convierte en una oportunidad para transformar las prácticas pedagógicas tradicionales y promover experiencias de aprendizaje significativas desde edades tempranas. A través de recursos tecnológicos, es posible crear espacios educativos más dinámicos, creativos y motivadores, en los que los niños puedan aprender mientras juegan, descubren y experimentan.
+            </p>
+            <p class="text-secondary lh-lg">
+              Por esta razón, el presente proyecto propone el diseño de un Objeto Virtual de Aprendizaje (OVA) denominado <strong>“La fábrica mágica de las palabras”</strong>, un recurso digital creado para estimular el desarrollo del lenguaje oral en niños de 4 años, mediante una experiencia interactiva y creativa basada en el juego, la exploración y la imaginación.
+            </p>
+            <p class="text-secondary lh-lg">
+              Esta propuesta busca que los niños se conviertan en protagonistas de su propio aprendizaje, participando en actividades como la identificación de imágenes, el reconocimiento de sonidos, la pronunciación de palabras y pequeños juegos interactivos. Asimismo, pretende despertar su curiosidad, fortalecer la escucha y favorecer la expresión oral, respetando sus ritmos y necesidades de aprendizaje.
+            </p>
+            <p class="text-secondary lh-lg">
+                De esta manera, “La fábrica mágica de las palabras” se presenta como una estrategia pedagógica que integra el juego y la tecnología para hacer del aprendizaje una experiencia agradable, participativa y significativa, contribuyendo al desarrollo de las habilidades comunicativas durante la primera infancia.
+            </p>
+          </section>
+
+          <!-- Justificación -->
+          <section class="mb-5">
+            <h3 class="fw-bold pb-2 border-bottom" style="color: var(--color-primary);">2. Justificación</h3>
+            <p class="text-secondary mt-3 lh-lg">
+              El desarrollo del lenguaje durante la primera infancia es fundamental, ya que permite que los niños expresen sus ideas, emociones, necesidades y pensamientos, además de facilitar la comunicación y la interacción con las personas de su entorno. Por esta razón, es importante fortalecer estas habilidades desde edades tempranas mediante experiencias educativas que despierten su curiosidad y motiven su participación.
+            </p>
+            <p class="text-secondary lh-lg">
+              La OVA surge como una propuesta pedagógica para estimular el lenguaje oral en niños de 4 años, utilizando herramientas digitales y actividades interactivas que permitan aprender de una manera divertida y significativa. A través de un personaje llamado <strong>Palabrín</strong>, los niños vivirán una aventura en la que deberán recuperar las palabras perdidas mediante juegos de reconocimiento de imágenes, identificación de sonidos, asociación de palabras y expresión oral.
+            </p>
+            <p class="text-secondary lh-lg">
+              Esta propuesta busca dejar de lado las actividades tradicionales y ofrecer espacios de aprendizaje donde los niños puedan explorar, escuchar, observar, participar y comunicarse libremente. Asimismo, pretende fortalecer la comprensión auditiva, ampliar el vocabulario, estimular la pronunciación y favorecer la confianza al momento de expresar sus ideas.
+            </p>
+            <p class="text-secondary lh-lg">
+                De esta manera, la OVA se convierte en un recurso educativo que integra el juego, la imaginación y la tecnología como herramientas para favorecer el desarrollo del lenguaje, respetando los ritmos de aprendizaje de cada niño y reconociendo que aprender también puede ser una experiencia llena de creatividad, diversión y descubrimientos.
+            </p>
+          </section>
+
+          <!-- Objetivos -->
+          <section class="mb-5">
+            <h3 class="fw-bold pb-2 border-bottom" style="color: var(--color-primary);">3. Objetivos</h3>
+            
+            <h5 class="fw-bold mt-4" style="color: var(--color-magic);">Objetivo General</h5>
+            <p class="text-secondary lh-lg">
+              Fortalecer el desarrollo del lenguaje oral en niños de 4 años mediante actividades lúdicas e interactivas que favorezcan la comprensión auditiva, el reconocimiento de imágenes, la ampliación del vocabulario y la expresión verbal.
+            </p>
+
+            <h5 class="fw-bold mt-4" style="color: var(--color-magic);">Objetivos Específicos</h5>
+            <ul class="text-secondary lh-lg">
+              <li>Estimular la escucha y la identificación de sonidos cotidianos.</li>
+              <li>Favorecer el reconocimiento y la asociación de imágenes con sus respectivos nombres.</li>
+              <li>Ampliar el vocabulario mediante la exploración de objetos y situaciones familiares.</li>
+              <li>Promover la expresión oral a través de preguntas, juegos y pequeños retos.</li>
+              <li>Despertar el interés por el lenguaje mediante experiencias digitales divertidas.</li>
+            </ul>
+          </section>
+
+          <!-- Metodología pedagógica -->
+          <section class="mb-4">
+            <h3 class="fw-bold pb-2 border-bottom" style="color: var(--color-primary);">4. Metodología Pedagógica</h3>
+            <p class="text-secondary mt-3 lh-lg">
+              La propuesta se fundamenta en el aprendizaje basado en el juego, la exploración y la participación activa. Se desarrollará mediante cinco momentos:
+            </p>
+            
+            <div class="row g-3 mt-3">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 h-100" style="background-color: var(--color-secondary-soft); border-left: 4px solid var(--color-primary);">
+                  <h6 class="fw-bold" style="color: var(--color-primary);"><i class="bi bi-eye-fill"></i> Exploración</h6>
+                  <p class="small text-secondary mb-0">Los niños observan imágenes y descubren elementos.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 h-100" style="background-color: var(--color-secondary-soft); border-left: 4px solid var(--color-magic);">
+                  <h6 class="fw-bold" style="color: var(--color-magic);"><i class="bi bi-volume-up-fill"></i> Escucha</h6>
+                  <p class="small text-secondary mb-0">Reconocen sonidos y escuchan palabras.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 h-100" style="background-color: var(--color-secondary-soft); border-left: 4px solid var(--color-success);">
+                  <h6 class="fw-bold" style="color: var(--color-success);"><i class="bi bi-check2-square"></i> Identificación</h6>
+                  <p class="small text-secondary mb-0">Relacionan imágenes con objetos y nombres.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 rounded-3 h-100" style="background-color: var(--color-secondary-soft); border-left: 4px solid var(--color-rojo-alegre);">
+                  <h6 class="fw-bold" style="color: var(--color-rojo-alegre);"><i class="bi bi-chat-dots-fill"></i> Expresión</h6>
+                  <p class="small text-secondary mb-0">Nombran objetos y responden preguntas sencillas.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 rounded-3 h-100" style="background-color: var(--color-secondary-soft); border-left: 4px solid var(--color-amarillo-sol);">
+                  <h6 class="fw-bold" style="color: #b58900;"><i class="bi bi-award-fill"></i> Retroalimentación</h6>
+                  <p class="small text-secondary mb-0">Reciben mensajes positivos y recompensas por participar.</p>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- Botón para volver al inicio -->
+          <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-kid btn-magic-kid px-4 py-2" data-audio="assets/audio/click-menu.mp3">
+              <i class="bi bi-arrow-left"></i> Volver al Inicio
+            </a>
+          </div>
+
+        </div>
+        </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       4. FOOTER LÚDICO Y EDUCATIVO
+       ======================================================================== -->
+  <footer class="magic-footer">
+    <div class="container-xl">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="m-0 fw-semibold">
+          ✨ <strong>La Fábrica Mágica de las Palabras</strong> &copy; 2026 &mdash; Diseñado por SkahnowTech.
+        </p>
+        <div>
+          <a href="#inicio" class="me-3"><i class="bi bi-arrow-up-circle"></i>Volver a Arriba</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SCRIPTS: BOOTSTRAP 5 BUNDLE + JS PROPIO
+       ======================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

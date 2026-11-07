@@ -133,6 +133,20 @@
           <span class="nav-icon"><i class="bi bi-trophy-fill"></i></span>
           <span>La gran misión de Palabrín</span>
         </a>
+        <a href="infoOVA.html" data-audio="assets/audio/OVA.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect width="2" height="20" x="2" y="6" />
+              <rect width="2" height="24" x="6" y="4" />
+              <rect width="12" height="2" x="14" y="22" />
+              <rect width="12" height="2" x="14" y="16" />
+              <path
+                d="M29.7 9.3l-7-7C22.5 2.1 22.3 2 22 2H12c-1.1 0-2 0.9-2 2v24c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2V10c0-0.3-0.1-0.5-0.3-0.7zM22 4.4 27.6 10H22zM28 28H12V4h8v6c0 1.1 0.9 2 2 2h6z" />
+            </svg>
+          </span>
+          <span>Sobre la OVA</span>
+        </a>
       </nav>
 
       <div class="text-center p-3 rounded-4 bg-white border border-info-subtle mt-4">
@@ -150,7 +164,7 @@
     <div class="container-xl game-container">
 
       <!-- ENCABEZADO Y BARRA DE PROGRESO -->
-      <section class="game-header-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <section class="game-header-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3" data-audio="assets/audio/subti1.mp3">
         <div>
           <h1 class="game-title">
             <i class="bi bi-box2-heart-fill"></i> La Caja de las Imágenes Sorprendentes
@@ -188,7 +202,7 @@
           </div>
 
           <!-- Globo de diálogo de Instrucciones -->
-          <div class="intro-speech">
+          <div class="intro-speech" data-audio="assets/audio/subti1.mp3">
             <p class="intro-speech-text">
               "Observa, escucha y repite el nombre de los objetos que saldrán de la caja mágica."
             </p>
@@ -214,7 +228,7 @@
         <h2 id="gameBoardTitle" class="visually-hidden">Tablero de Objetos de la Caja Mágica</h2>
 
         <!-- Ilustración central de la Caja Mágica -->
-        <div class="magic-box-stage">
+        <div class="magic-box-stage" data-audio="assets/audio/subti1.mp3">
           <div class="magic-box-container">
             <div class="box-aura"></div>
             <!-- SVG de la Caja de Sorpresas Mágica -->
@@ -269,10 +283,16 @@
             </p>
           </div>
 
-          <!-- Botón de confirmación para pasar a la siguiente palabra -->
-          <button type="button" id="btnWordSaid" class="btn-kid btn-emerald-kid btn-word-confirm shadow-lg">
-            <i class="bi bi-mic-fill"></i> ¡Ya la dije! / Siguiente palabra
-          </button>
+          <!-- Botones de acción: Repetir Audio y Siguiente Palabra -->
+          <div class="spotlight-actions d-flex flex-wrap justify-content-center gap-3">
+            <button type="button" id="btnRepeatAudio" class="btn-kid btn-primary-kid btn-repeat-audio shadow-lg"
+              title="Escuchar la pronunciación del objeto de nuevo">
+              <i class="bi bi-arrow-repeat fs-5"></i> Repetir Audio
+            </button>
+            <button type="button" id="btnWordSaid" class="btn-kid btn-emerald-kid btn-word-confirm shadow-lg">
+              <i class="bi bi-mic-fill"></i> ¡Siguiente Palabra!
+            </button>
+          </div>
         </div>
       </div>
 
