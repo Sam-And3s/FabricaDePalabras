@@ -1,0 +1,494 @@
+/* ==========================================================================
+   MINIJUEGO 2: ¿QUÉ SONIDO ESTÁS ESCUCHANDO? - ESTILOS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR GENERAL Y BARRA DE PROGRESO
+   -------------------------------------------------------------------------- */
+.game-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-bottom: 3.5rem;
+}
+
+.game-header-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF8FF 70%, var(--color-secondary-soft) 100%);
+  border: 2.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 2rem;
+}
+
+.game-title {
+  color: var(--color-magic);
+  font-size: 1.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.35rem;
+}
+
+.game-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.progress-wrapper {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  box-shadow: 0 4px 12px rgba(128, 161, 212, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-custom {
+  flex-grow: 1;
+  height: 16px;
+  background-color: var(--color-secondary-soft);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.progress-bar-magic {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+  border-radius: var(--radius-pill);
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(72, 191, 132, 0.4);
+}
+
+.progress-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-magic);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   2. PANTALLA 1: INICIO Y ROBOT PALABRÍN
+   -------------------------------------------------------------------------- */
+#screenIntro {
+  transition: var(--transition-normal);
+}
+
+.intro-card {
+  background: var(--color-surface);
+  border-radius: 32px;
+  border: 3px solid rgba(121, 30, 148, 0.18);
+  box-shadow: 0 16px 40px rgba(121, 30, 148, 0.12);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.intro-robot-img {
+  max-width: 240px;
+  width: 100%;
+  cursor: pointer;
+  filter: drop-shadow(0 14px 20px rgba(121, 30, 148, 0.2));
+  transition: var(--transition-normal);
+}
+
+.intro-robot-img:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.intro-speech {
+  background: linear-gradient(135deg, #FFFFFF, var(--color-magic-soft));
+  border: 2.5px solid var(--color-secondary);
+  border-radius: 24px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem auto 2.5rem;
+  max-width: 680px;
+  box-shadow: 0 8px 24px rgba(128, 161, 212, 0.15);
+}
+
+.intro-speech-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-magic);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.intro-speech-hint {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 0.6rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. PANTALLA 2: TABLERO DEL JUEGO (IMÁGENES ARRIBA, CAJAS ABAJO)
+   -------------------------------------------------------------------------- */
+#screenGame {
+  display: none;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-magic);
+  margin-bottom: 1rem;
+}
+
+/* Banner de feedback interactivo de Palabrín */
+.palabrin-feedback-banner {
+  background: linear-gradient(135deg, #FFFFFF, var(--color-magic-soft));
+  border: 2.5px solid var(--color-magic);
+  border-radius: 24px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  animation: palpito-rapido 0.8s infinite ease-in-out;
+}
+
+.feedback-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--color-magic);
+  background-color: #FFFFFF;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.feedback-text {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+.feedback-text strong {
+  color: var(--color-magic);
+}
+
+/* Grilla Superior: Imágenes Disponibles */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 160px));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+
+.image-card {
+  background: var(--color-surface);
+  border: 2.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  min-height: 160px;
+}
+
+.image-card:hover:not(.is-matched) {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary);
+}
+
+.image-icon-wrapper {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover:not(.is-matched) .image-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.image-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+/* Estados de la imagen */
+.image-card.is-matched {
+  border-color: var(--color-success);
+  background: linear-gradient(135deg, #FFFFFF, rgba(72, 191, 132, 0.12));
+  opacity: 0.85;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.image-card.is-matched .image-name {
+  color: var(--color-success);
+}
+
+.image-card.is-wrong {
+  animation: shakeCard 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border-color: #FF4D4D !important;
+}
+
+@keyframes shakeCard {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.matched-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-success);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(72, 191, 132, 0.4);
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Grilla Inferior: Cajas de Sonido 🔊 */
+.sounds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 160px));
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.sound-box-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--color-secondary-soft) 100%);
+  border: 3px solid var(--color-secondary);
+  border-radius: 24px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  min-height: 160px;
+}
+
+.sound-box-card:hover:not(.is-matched) {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary);
+}
+
+.sound-box-icon {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.sound-box-card:hover:not(.is-matched) .sound-box-icon {
+  transform: scale(1.18);
+}
+
+.sound-box-label {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-magic);
+  margin-bottom: 0.2rem;
+}
+
+.sound-box-hint {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+/* Estado de la caja: SONANDO / ACTIVA */
+.sound-box-card.is-active {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, #FFFFFF, rgba(53, 167, 255, 0.18));
+  box-shadow: 0 0 24px rgba(53, 167, 255, 0.45);
+  transform: translateY(-8px) scale(1.08);
+}
+
+.sound-box-card.is-active .sound-box-icon {
+  animation: pulseSpeaker 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSpeaker {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.25) rotate(-6deg); }
+}
+
+/* Estado de la caja: EMPAREJADA */
+.sound-box-card.is-matched {
+  border-color: var(--color-success);
+  background: linear-gradient(135deg, #FFFFFF, rgba(72, 191, 132, 0.12));
+  opacity: 0.85;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+.sound-box-card.is-matched .sound-box-label {
+  color: var(--color-success);
+}
+
+/* --------------------------------------------------------------------------
+   4. PANTALLA 3: FINALIZACIÓN DEL JUEGO (4 BOTONES)
+   -------------------------------------------------------------------------- */
+#screenVictory {
+  display: none;
+  animation: victoryFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes victoryFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.victory-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFDF5 60%, var(--color-magic-soft) 100%);
+  border: 3.5px solid var(--color-magic);
+  border-radius: 36px;
+  box-shadow: 0 20px 50px rgba(121, 30, 148, 0.18);
+  padding: 3.5rem 2rem;
+  text-align: center;
+}
+
+.victory-robot-img {
+  max-width: 250px;
+  width: 100%;
+  filter: drop-shadow(0 16px 25px rgba(121, 30, 148, 0.25));
+  animation: victoryBounce 2s ease-in-out infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes victoryBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+.victory-title {
+  font-size: 2.5rem;
+  color: var(--color-magic);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.victory-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+
+.stars-celebration {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2.2rem;
+  color: #FFD166;
+  margin-bottom: 2.5rem;
+}
+
+/* Las 4 Opciones de la Pantalla de Finalización */
+.victory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.victory-btn {
+  min-width: 230px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .game-header-card {
+    padding: 1.25rem;
+  }
+  
+  .game-title {
+    font-size: 1.45rem;
+  }
+
+  .palabrin-feedback-banner {
+    padding: 1rem;
+    gap: 12px;
+  }
+
+  .feedback-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .feedback-text {
+    font-size: 1rem;
+  }
+  
+  .images-grid,
+  .sounds-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .victory-title {
+    font-size: 1.85rem;
+  }
+
+  .victory-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .victory-btn {
+    width: 100%;
+  }
+}
+
