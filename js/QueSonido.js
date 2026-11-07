@@ -54,9 +54,9 @@ function initQueSonidoGame() {
     },
     {
       id: "auto",
-      name: "El Auto",
+      name: "El Carro",
       soundEffect: "horn",
-      praise: "¡Fantástico! Ese sonido lo produce el auto.",
+      praise: "¡Fantástico! Ese sonido lo produce el carro.",
       svg: `<svg viewBox="0 0 64 64" class="image-svg" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 36 L18 22 Q20 18 25 18 L39 18 Q44 18 47 22 L54 36 Z" fill="#35A7FF" />
               <rect x="8" y="32" width="48" height="16" rx="4" fill="#35A7FF" />

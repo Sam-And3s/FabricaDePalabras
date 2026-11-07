@@ -45,7 +45,7 @@ function initCajaSorprendenteGame() {
       id: 3,
       name: "Gato",
       article: "el",
-      audio: "assets/audio/gato.mp3",
+      audio: "assets/audio/gato1.mp3",
       category: "Animal",
       svg: `<svg viewBox="0 0 64 64" class="object-svg" xmlns="http://www.w3.org/2000/svg">
               <polygon points="16,26 12,10 28,18" fill="#80A1D4" />
@@ -136,7 +136,7 @@ function initCajaSorprendenteGame() {
       id: 8,
       name: "Carro",
       article: "el",
-      audio: "assets/audio/carro.mp3",
+      audio: "assets/audio/carro1.mp3",
       category: "Transporte",
       svg: `<svg viewBox="0 0 64 64" class="object-svg" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 36 L18 22 Q20 18 25 18 L39 18 Q44 18 47 22 L54 36 Z" fill="#35A7FF" />
@@ -174,7 +174,7 @@ function initCajaSorprendenteGame() {
       id: 10,
       name: "Perro",
       article: "el",
-      audio: "assets/audio/perro.mp3",
+      audio: "assets/audio/perro1.mp3",
       category: "Animal",
       svg: `<svg viewBox="0 0 64 64" class="object-svg" xmlns="http://www.w3.org/2000/svg">
               <!-- Orejas caídas -->

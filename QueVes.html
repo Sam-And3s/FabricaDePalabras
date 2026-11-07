@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Cuéntame qué estás viendo! | La Fábrica Mágica</title>
+  <link rel="icon" href="assets/images/smile.png" type="image/png">
+
+  <!-- Meta etiquetas SEO y experiencia de usuario infantil -->
+  <meta name="description"
+    content="Minijuego 3: ¡Cuéntame qué estás viendo! Observa los objetos cotidianos y responde a las preguntas lógicas y divertidas que te hace Palabrín.">
+  <meta name="theme-color" content="#791E94">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts: Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Globales y Específicos del Minijuego -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/queVes.css">
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / BANNER SUPERIOR FIJO (IDÉNTICO AL PROYECTO)
+       ======================================================================== -->
+  <header class="navbar navbar-expand fixed-top magic-navbar">
+    <div class="container-xl d-flex justify-content-between align-items-center">
+
+      <!-- Marca y Avatar del Robot Guardián -->
+      <a class="brand-wrapper" href="index.html" title="Ir al inicio de La Fábrica Mágica">
+        <div class="brand-avatar">
+          <img src="assets/images/smile.png" alt="Robot Guardián sonriente">
+        </div>
+        <div class="brand-title">
+          <span>La Fábrica Mágica</span>
+          <span class="brand-subtitle">de las Palabras ✨</span>
+        </div>
+      </a>
+
+      <!-- Acciones de barra superior: Contador de objetos y Menú Hamburguesa -->
+      <div class="nav-actions">
+        <div class="badge-points d-flex align-items-center gap-2" title="Progreso de objetos completados">
+          <i class="bi bi-eye-fill text-primary"></i>
+          <span id="headerCounter">0 / 5 Objetos</span>
+        </div>
+
+        <button id="btnMagicMenu" class="btn-magic-menu" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Abrir menú de navegación">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. MENÚ OFFCANVAS (PANEL LATERAL RESPONSIVO)
+       ======================================================================== -->
+  <div class="offcanvas offcanvas-end magic-offcanvas" tabindex="-1" id="offcanvasNav"
+    aria-labelledby="offcanvasNavLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavLabel">
+        <i class="bi bi-compass text-primary"></i> Menú Mágico
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      <nav class="magic-nav-list">
+        <a href="index.html" data-audio="assets/audio/inicio.mp3" class="magic-nav-item">
+          <span class="nav-icon"><i class="bi bi-house-door-fill"></i></span>
+          <span>Inicio</span>
+        </a>
+        <a href="CajaSorprendente.html" data-audio="assets/audio/caja.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.735 17.832l12.054 6.081 2.152-6.081-12.053-5.758zM16.211 17.832l2.045 6.027 12.484-6.081-2.422-5.704zM-0.247 7.212l4.144 4.843 12.053-6.134-3.928-5.005zM32.247 7.319 20.246 0.916l-4.09 5.005 12.162 6.134zM3.175 19.353 3.134 25.192l12.713 5.893v-10.98l-1.816 4.736zM16.291 20.105v10.979l12.674-5.893v-5.799l-10.99 5.46z" />
+            </svg>
+          </span>
+          <span>La Caja de las Imágenes Sorprendentes</span>
+        </a>
+        <a href="QueSonido.html" data-audio="assets/audio/sonido.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 30v-2a10.0114 10.0114 0 0 0 10-10h2a12.0134 12.0134 0 0 1-12 12z" />
+              <path d="M18 26v-2a6.0066 6.0066 0 0 0 6-6h2a8.0092 8.0092 0 0 1-8 8z" />
+              <path d="M18 22v-2a2.0023 2.0023 0 0 0 2-2h2a4.0042 4.0042 0 0 1-4 4z" />
+              <path
+                d="M10 2a9.01 9.01 0 0 0-9 9h2a7 7 0 0 1 14 0 7.09 7.09 0 0 1-3.501 6.1348L13 17.4229v3.0732a2.9354 2.9354 0 0 1-0.9009 2.1514 4.1824 4.1824 0 0 1-4.6318 1.03A4.0918 4.0918 0 0 1 5 20H3a6.1156 6.1156 0 0 0 3.6694 5.5117 5.7822 5.7822 0 0 0 2.3145 0.4863 6.5854 6.5854 0 0 0 4.4785-1.888A4.94 4.94 0 0 0 15 20.4961v-1.9424A9.1077 9.1077 0 0 0 19 11a9.01 9.01 0 0 0-9-9z" />
+            </svg>
+          </span>
+          <span>¿Qué sonido estás escuchando?</span>
+        </a>
+        <a href="QueVes.html" data-audio="assets/audio/cuentame.mp3" class="magic-nav-item active">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" color="currentColor" fill="currentColor" stroke-width="2" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" width="25" xmlns="http://www.w3.org/2000/svg">
+              <path fill="none" d="M5.5 21C2.7 21 1 17 1 12s1.7-9 4.5-9C8.2 3 10 7 10 12s-1.8 9-4.5 9z" />
+              <path fill="none" d="M18.5 21c-2.7 0-4.5-4-4.5-9s1.8-9 4.5-9c2.8 0 4.5 4 4.5 9s-1.7 9-4.5 9z" />
+              <circle cx="4" cy="12" r="3" />
+              <circle cx="17" cy="12" r="3" />
+            </svg>
+          </span>
+          <span>¡Cuéntame qué estás viendo!</span>
+        </a>
+        <a href="unirPalabras.html" data-audio="assets/audio/unamos.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M28 16a1 1 0 0 1-1 1H16a1 1 0 0 1 0-2h11a1 1 0 0 1 1 1zM16 9h11a1 1 0 0 0 0-2H16a1 1 0 0 0 0 2zM27 23H16a1 1 0 0 0 0 2h11a1 1 0 0 0 0-2z" />
+            </svg>
+          </span>
+          <span>Unamos las palabras con sus imágenes</span>
+        </a>
+        <a href="misionPalabrin.html" data-audio="assets/audio/mision.mp3" class="magic-nav-item">
+          <span class="nav-icon"><i class="bi bi-trophy-fill"></i></span>
+          <span>La gran misión de Palabrín</span>
+        </a>
+        <a href="infoOVA.html" data-audio="assets/audio/OVA.mp3" class="magic-nav-item">
+          <span class="nav-icon">
+            <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect width="2" height="20" x="2" y="6" />
+              <rect width="2" height="24" x="6" y="4" />
+              <rect width="12" height="2" x="14" y="22" />
+              <rect width="12" height="2" x="14" y="16" />
+              <path
+                d="M29.7 9.3l-7-7C22.5 2.1 22.3 2 22 2H12c-1.1 0-2 0.9-2 2v24c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2V10c0-0.3-0.1-0.5-0.3-0.7zM22 4.4 27.6 10H22zM28 28H12V4h8v6c0 1.1 0.9 2 2 2h6z" />
+            </svg>
+          </span>
+          <span>Sobre la OVA</span>
+        </a>
+      </nav>
+
+      <div class="text-center p-3 rounded-4 bg-white border border-info-subtle mt-4">
+        <small class="text-muted fw-bold">
+          <i class="bi bi-lightbulb text-warning me-1"></i> ¡Aprender jugando es la clave!
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       3. CONTENEDOR PRINCIPAL
+       ======================================================================== -->
+  <main class="main-wrapper">
+    <div class="container-xl game-container">
+
+      <!-- ENCABEZADO Y BARRA DE PROGRESO -->
+      <section data-audio="assets/audio/subti3.mp3" class="game-header-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <div>
+          <h1 class="game-title">
+            <i class="bi bi-eye-fill text-primary"></i> ¡Cuéntame qué estás viendo!
+          </h1>
+          <p class="game-subtitle">
+            Observa con atención y responde a las preguntas mágicas que te hace Palabrín.
+          </p>
+        </div>
+
+        <!-- Indicador visual del avance -->
+        <div class="progress-wrapper">
+          <i class="bi bi-chat-heart-fill text-primary fs-5"></i>
+          <div class="progress-custom">
+            <div id="gameProgressBar" class="progress-bar-magic" role="progressbar" aria-valuenow="0"
+              aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span id="gameProgressCount" class="progress-text">0 de 5 objetos</span>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           PANTALLA 1: CONFIRMACIÓN DE INICIO CON PALABRÍN
+           ==================================================================== -->
+      <section id="screenIntro" aria-labelledby="introTitle">
+        <div class="intro-card">
+          <h2 id="introTitle" class="visually-hidden">Instrucciones del Minijuego 3</h2>
+
+          <!-- Mascota Robot Palabrín Interactiva con audio -->
+          <div class="mb-3">
+            <img id="robotIntroImg" src="assets/images/instrucciones.png"
+              data-audio="assets/audio/elige.mp3"
+              alt="Robot Palabrín explicando instrucciones" class="intro-robot-img animate-bounce"
+              title="¡Haz clic en mí para escuchar las instrucciones!"
+              onerror="this.src='assets/images/contento.png'">
+          </div>
+
+          <!-- Globo de diálogo de Instrucciones -->
+          <div class="intro-speech" data-audio="assets/audio/elige.mp3" style="cursor: pointer;" title="Toca para escuchar">
+            <p class="intro-speech-text">
+              "Observa y responde a las preguntas que te hace Palabrín."
+            </p>
+            <p class="intro-speech-hint">
+              <i class="bi bi-volume-up-fill text-primary"></i> Haz clic en Palabrín para escuchar su voz mágica.
+            </p>
+          </div>
+
+          <!-- Botón de Iniciar Juego -->
+          <div>
+            <button type="button" id="btnStartGame" class="btn-kid btn-primary-kid fs-4 px-5 py-3 shadow-lg"
+              data-audio="assets/audio/comienza.mp3">
+              <i class="bi bi-play-circle-fill fs-3"></i> ¡Iniciar Juego!
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           PANTALLA 2: TABLERO DE TARJETAS DE OBJETOS COTIDIANOS
+           ==================================================================== -->
+      <section id="screenGame" aria-labelledby="gameBoardTitle">
+        <h2 id="gameBoardTitle" class="visually-hidden">Tablero de Tarjetas de Objetos</h2>
+
+        <div class="mb-4">
+          <div class="section-label" data-audio="assets/audio/elige.mp3">
+            <i class="bi bi-hand-index-thumb-fill text-warning"></i> Toca un objeto o animalito para conversar con Palabrín:
+          </div>
+          <div id="objectsGrid" class="objects-board" role="region" aria-label="Tarjetas de objetos disponibles">
+            <!-- Se inyecta dinámicamente con js/QueVes.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           MODAL INTERACTIVO DE PREGUNTAS (SPOTLIGHT / OVERLAY)
+           ==================================================================== -->
+      <div id="spotlightModal" class="spotlight-overlay" role="dialog" aria-modal="true" aria-labelledby="spotlightObjectName">
+        <div class="spotlight-card">
+
+          <!-- Encabezado del diálogo: Paso actual y puntos de avance -->
+          <div class="spotlight-header">
+            <span id="questionStepBadge" class="question-step-badge">
+              <i class="bi bi-patch-question-fill"></i> Pregunta 1 de 3
+            </span>
+            <div id="questionDots" class="question-dots" aria-hidden="true">
+              <span class="q-dot active"></span>
+              <span class="q-dot"></span>
+              <span class="q-dot"></span>
+            </div>
+          </div>
+
+          <!-- Figura destacada del objeto actual -->
+          <div id="spotlightFigure" class="spotlight-figure">
+            <!-- SVG del objeto seleccionado -->
+          </div>
+
+          <h3 id="spotlightObjectName" class="spotlight-object-name">Nombre del Objeto</h3>
+
+          <!-- Globo de Pregunta con el Avatar de Palabrín -->
+          <div class="palabrin-question-box">
+            <img id="questionAvatar" src="assets/images/senalando.png" alt="Palabrín preguntando"
+              class="question-avatar" onerror="this.src='assets/images/smile.png'">
+            <div class="question-text-wrapper">
+              <p id="questionText" class="question-text">
+                ¿Qué es esto que estamos viendo?
+              </p>
+              <div class="question-instruction">
+                <i class="bi bi-mic-fill text-primary"></i> ¡Responde fuerte y claro con tu propia voz!
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de Acción: Repetir pregunta y Confirmar respuesta -->
+          <div class="spotlight-actions">
+            <button type="button" id="btnRepeatQuestion" class="btn-kid btn-secondary-kid btn-repeat-q shadow-sm"
+              title="Escuchar la pregunta de nuevo">
+              <i class="bi bi-volume-up-fill fs-5"></i> Escuchar Pregunta
+            </button>
+            <button type="button" id="btnNextQuestion" class="btn-kid btn-emerald-kid btn-confirm-q shadow-lg">
+              <i class="bi bi-check-circle-fill fs-5"></i> ¡Ya respondí! ➡️ Siguiente
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           PANTALLA 3: FINALIZACIÓN DEL JUEGO (EXACTAMENTE 4 OPCIONES)
+           ==================================================================== -->
+      <section id="screenVictory" aria-labelledby="victoryTitle">
+        <div class="victory-card">
+          <!-- Palabrín celebrando emocionado -->
+          <img src="assets/images/emocionado.png" alt="Palabrín celebrando emocionado" class="victory-robot-img"
+            onerror="this.src='assets/images/contento.png'">
+
+          <h2 id="victoryTitle" class="victory-title">¡Misión Cumplida! 🎉✨</h2>
+          <p class="victory-subtitle">
+            ¡Has observado con gran atención y respondiste todas las preguntas sobre los <strong>5 objetos mágicos</strong>! Palabrín está fascinado con tus respuestas.
+          </p>
+
+          <!-- Estrellas de Celebración -->
+          <div class="stars-celebration" aria-hidden="true">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+
+          <!-- EXACTAMENTE LAS 4 OPCIONES REQUERIDAS -->
+          <div class="victory-actions">
+            <!-- Opción 1: Menú Principal -->
+            <a href="index.html" class="btn-kid btn-secondary-kid victory-btn"
+              data-audio="assets/audio/inicio.mp3">
+              <i class="bi bi-house-door-fill"></i> Menú Principal
+            </a>
+
+            <!-- Opción 2: Reiniciar Juego -->
+            <button type="button" data-audio="assets/audio/reiniciar.mp3" id="btnRestartGame" class="btn-kid btn-primary-kid victory-btn">
+              <i class="bi bi-arrow-clockwise"></i> Reiniciar Juego
+            </button>
+
+            <!-- Opción 3: Juego Anterior -->
+            <a href="QueSonido.html" class="btn-kid btn-emerald-kid victory-btn"
+              data-audio="assets/audio/sonido.mp3">
+              <i class="bi bi-arrow-left-circle-fill"></i> Juego Anterior: ¿Qué Sonido Estás Escuchando?
+            </a>
+
+            <!-- Opción 4: Juego Siguiente -->
+            <a href="unirPalabras.html" class="btn-kid btn-magic-kid victory-btn"
+              data-audio="assets/audio/unamos.mp3">
+              <i class="bi bi-arrow-right-circle-fill"></i> Siguiente Juego: Unamos las Palabras con sus Imágenes
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       4. FOOTER LÚDICO Y EDUCATIVO (IDÉNTICO AL PROYECTO)
+       ======================================================================== -->
+  <footer class="magic-footer">
+    <div class="container-xl">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="m-0 fw-semibold">
+          ✨ <strong>La Fábrica Mágica de las Palabras</strong> &copy; 2026 &mdash; Diseñado por SkahnowTech.
+        </p>
+        <div>
+          <a href="index.html" class="me-3"><i class="bi bi-arrow-left-circle"></i> Volver a la Fábrica</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SCRIPTS: BOOTSTRAP 5 + MAIN JS + QUE VES JS
+       ======================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="js/QueVes.js"></script>
+</body>
+
+</html>
+
