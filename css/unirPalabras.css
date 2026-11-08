@@ -1,0 +1,471 @@
+/* ==========================================================================
+   MINIJUEGO 4: UNAMOS LAS PALABRAS CON SUS IMÁGENES - ESTILOS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR GENERAL Y BARRA DE PROGRESO
+   -------------------------------------------------------------------------- */
+.game-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-bottom: 3.5rem;
+}
+
+.game-header-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF8FF 70%, var(--color-secondary-soft) 100%);
+  border: 2.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 2rem;
+}
+
+.game-title {
+  color: var(--color-magic);
+  font-size: 1.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.35rem;
+}
+
+.game-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.progress-wrapper {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  box-shadow: 0 4px 12px rgba(128, 161, 212, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-custom {
+  flex-grow: 1;
+  height: 16px;
+  background-color: var(--color-secondary-soft);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.progress-bar-magic {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+  border-radius: var(--radius-pill);
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(72, 191, 132, 0.4);
+}
+
+.progress-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-magic);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   2. PANTALLA 1: INICIO Y CONFIRMACIÓN CON PALABRÍN
+   -------------------------------------------------------------------------- */
+#screenIntro {
+  transition: var(--transition-normal);
+}
+
+.intro-card {
+  background: var(--color-surface);
+  border-radius: 32px;
+  border: 3px solid rgba(121, 30, 148, 0.18);
+  box-shadow: 0 16px 40px rgba(121, 30, 148, 0.12);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.intro-robot-img {
+  max-width: 240px;
+  width: 100%;
+  cursor: pointer;
+  filter: drop-shadow(0 14px 20px rgba(121, 30, 148, 0.2));
+  transition: var(--transition-normal);
+}
+
+.intro-robot-img:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.intro-speech {
+  background: linear-gradient(135deg, #FFFFFF, var(--color-magic-soft));
+  border: 2.5px solid var(--color-secondary);
+  border-radius: 24px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem auto 2.5rem;
+  max-width: 680px;
+  box-shadow: 0 8px 24px rgba(128, 161, 212, 0.15);
+}
+
+.intro-speech-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-magic);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.intro-speech-hint {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 0.6rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. PANTALLA 2: ARENA DE EMPAREJAMIENTO (PALABRAS E IMÁGENES)
+   -------------------------------------------------------------------------- */
+#screenGame {
+  display: none;
+}
+
+/* Banner de feedback interactivo de Palabrín */
+.palabrin-feedback-banner {
+  background: linear-gradient(135deg, #FFFFFF, var(--color-magic-soft));
+  border: 2.5px solid var(--color-magic);
+  border-radius: 24px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.feedback-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--color-magic);
+  background-color: #FFFFFF;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.feedback-text {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+.feedback-text strong {
+  color: var(--color-magic);
+}
+
+/* Contenedor principal de columnas */
+.matching-arena {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.column-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-magic);
+  text-align: center;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.words-grid,
+.images-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Tarjeta de Palabra */
+.word-card {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border-subtle);
+  border-radius: 20px;
+  padding: 1.15rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  min-height: 80px;
+}
+
+.word-card:hover:not(.is-matched) {
+  transform: translateX(6px) scale(1.02);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 24px rgba(53, 167, 255, 0.2);
+}
+
+.word-text {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-magic);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.word-icon-hint {
+  color: var(--color-secondary);
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.word-card:hover:not(.is-matched) .word-icon-hint {
+  transform: scale(1.2);
+  color: var(--color-primary);
+}
+
+/* Tarjeta de Imagen */
+.image-match-card {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border-subtle);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  min-height: 80px;
+}
+
+.image-match-card:hover:not(.is-matched) {
+  transform: translateX(-6px) scale(1.02);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 24px rgba(53, 167, 255, 0.2);
+}
+
+.image-match-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-match-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-match-hint {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* Estado SELECCIONADO (Palabra o Imagen activa esperando pareja) */
+.word-card.is-selected,
+.image-match-card.is-selected {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, #FFFFFF, rgba(53, 167, 255, 0.18));
+  box-shadow: 0 0 20px rgba(53, 167, 255, 0.45);
+  transform: scale(1.04);
+}
+
+/* Estado EMPAREJADO CON ÉXITO */
+.word-card.is-matched,
+.image-match-card.is-matched {
+  border-color: var(--color-success);
+  background: linear-gradient(135deg, #FFFFFF, rgba(72, 191, 132, 0.15));
+  opacity: 0.9;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+.word-card.is-matched .word-text {
+  color: var(--color-success);
+}
+
+.matched-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-success);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(72, 191, 132, 0.4);
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Estado de ERROR (Shake suave) */
+.word-card.is-wrong,
+.image-match-card.is-wrong {
+  animation: shakeCard 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border-color: #FF4D4D !important;
+}
+
+@keyframes shakeCard {
+  10%, 90% { transform: translate3d(-3px, 0, 0); }
+  20%, 80% { transform: translate3d(5px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+  40%, 60% { transform: translate3d(5px, 0, 0); }
+}
+
+/* Drag over visual feedback */
+.image-match-card.is-dragover,
+.word-card.is-dragover {
+  border-style: dashed;
+  border-color: var(--color-primary);
+  background-color: rgba(53, 167, 255, 0.12);
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   4. PANTALLA 3: FINALIZACIÓN DEL JUEGO (4 OPCIONES OBLIGATORIAS)
+   -------------------------------------------------------------------------- */
+#screenVictory {
+  display: none;
+  animation: victoryFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes victoryFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.victory-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFDF5 60%, var(--color-magic-soft) 100%);
+  border: 3.5px solid var(--color-magic);
+  border-radius: 36px;
+  box-shadow: 0 20px 50px rgba(121, 30, 148, 0.18);
+  padding: 3.5rem 2rem;
+  text-align: center;
+}
+
+.victory-robot-img {
+  max-width: 250px;
+  width: 100%;
+  filter: drop-shadow(0 16px 25px rgba(121, 30, 148, 0.25));
+  animation: victoryBounce 2s ease-in-out infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes victoryBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+.victory-title {
+  font-size: 2.4rem;
+  color: var(--color-magic);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.victory-subtitle {
+  font-size: 1.22rem;
+  color: var(--color-text-main);
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+
+.stars-celebration {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2.2rem;
+  color: #FFD166;
+  margin-bottom: 2.5rem;
+}
+
+/* Los 3 botones obligatorios de la pantalla final */
+.victory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.victory-btn {
+  min-width: 230px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .game-header-card {
+    padding: 1.25rem;
+  }
+  
+  .game-title {
+    font-size: 1.45rem;
+  }
+
+  .matching-arena {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .word-card,
+  .image-match-card {
+    min-height: 70px;
+    padding: 0.85rem 1.2rem;
+  }
+
+  .word-text {
+    font-size: 1.25rem;
+  }
+
+  .image-match-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .victory-title {
+    font-size: 1.85rem;
+  }
+
+  .victory-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .victory-btn {
+    width: 100%;
+  }
+}
+

@@ -122,9 +122,9 @@
         <a href="unirPalabras.html" data-audio="assets/audio/unamos.mp3" class="magic-nav-item">
           <span class="nav-icon">
             <svg viewBox="0 0 32 32" color="currentColor" fill="currentColor" width="25"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <path
-                d="M28 16a1 1 0 0 1-1 1H16a1 1 0 0 1 0-2h11a1 1 0 0 1 1 1zM16 9h11a1 1 0 0 0 0-2H16a1 1 0 0 0 0 2zM27 23H16a1 1 0 0 0 0 2h11a1 1 0 0 0 0-2z" />
+                d="M28 16a1 1 0 0 1-1 1H16a1 1 0 0 1 0-2h11a1 1 0 0 1 1 1zM16 9h11a1 1 0 0 0 0-2H16a1 1 0 0 0 0 2zM27 23H16a1 1 0 0 0 0 2h11a1 1 0 0 0 0-2zM10.2925 5.2925 7 8.5863 5.7075 7.2925a1.0006 1.0006 0 0 0-1.415 1.415l2 2a1 1 0 0 0 1.415 0l4-4a1.0006 1.0006 0 0 0-1.415-1.415zM10.2925 13.2925 7 16.5863 5.7075 15.2925a1.0006 1.0006 0 0 0-1.415 1.415l2 2a1 1 0 0 0 1.415 0l4-4a1.0006 1.0006 0 0 0-1.415-1.415zM10.2925 21.2925 7 24.5863 5.7075 23.2925a1.0006 1.0006 0 0 0-1.415 1.415l2 2a1 1 0 0 0 1.415 0l4-4a1.0006 1.0006 0 0 0-1.415-1.415z" />
             </svg>
           </span>
           <span>Unamos las palabras con sus imágenes</span>
@@ -164,7 +164,8 @@
     <div class="container-xl game-container">
 
       <!-- ENCABEZADO Y BARRA DE PROGRESO -->
-      <section data-audio="assets/audio/subti3.mp3" class="game-header-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <section data-audio="assets/audio/subti3.mp3"
+        class="game-header-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
         <div>
           <h1 class="game-title">
             <i class="bi bi-eye-fill text-primary"></i> ¡Cuéntame qué estás viendo!
@@ -178,8 +179,8 @@
         <div class="progress-wrapper">
           <i class="bi bi-chat-heart-fill text-primary fs-5"></i>
           <div class="progress-custom">
-            <div id="gameProgressBar" class="progress-bar-magic" role="progressbar" aria-valuenow="0"
-              aria-valuemin="0" aria-valuemax="100"></div>
+            <div id="gameProgressBar" class="progress-bar-magic" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
           <span id="gameProgressCount" class="progress-text">0 de 5 objetos</span>
         </div>
@@ -194,15 +195,14 @@
 
           <!-- Mascota Robot Palabrín Interactiva con audio -->
           <div class="mb-3">
-            <img id="robotIntroImg" src="assets/images/instrucciones.png"
-              data-audio="assets/audio/elige.mp3"
+            <img id="robotIntroImg" src="assets/images/instrucciones.png" data-audio="assets/audio/elige.mp3"
               alt="Robot Palabrín explicando instrucciones" class="intro-robot-img animate-bounce"
-              title="¡Haz clic en mí para escuchar las instrucciones!"
-              onerror="this.src='assets/images/contento.png'">
+              title="¡Haz clic en mí para escuchar las instrucciones!" onerror="this.src='assets/images/contento.png'">
           </div>
 
           <!-- Globo de diálogo de Instrucciones -->
-          <div class="intro-speech" data-audio="assets/audio/elige.mp3" style="cursor: pointer;" title="Toca para escuchar">
+          <div class="intro-speech" data-audio="assets/audio/elige.mp3" style="cursor: pointer;"
+            title="Toca para escuchar">
             <p class="intro-speech-text">
               "Observa y responde a las preguntas que te hace Palabrín."
             </p>
@@ -229,7 +229,8 @@
 
         <div class="mb-4">
           <div class="section-label" data-audio="assets/audio/elige.mp3">
-            <i class="bi bi-hand-index-thumb-fill text-warning"></i> Toca un objeto o animalito para conversar con Palabrín:
+            <i class="bi bi-hand-index-thumb-fill text-warning"></i> Toca un objeto o animalito para conversar con
+            Palabrín:
           </div>
           <div id="objectsGrid" class="objects-board" role="region" aria-label="Tarjetas de objetos disponibles">
             <!-- Se inyecta dinámicamente con js/QueVes.js -->
@@ -240,7 +241,8 @@
       <!-- ====================================================================
            MODAL INTERACTIVO DE PREGUNTAS (SPOTLIGHT / OVERLAY)
            ==================================================================== -->
-      <div id="spotlightModal" class="spotlight-overlay" role="dialog" aria-modal="true" aria-labelledby="spotlightObjectName">
+      <div id="spotlightModal" class="spotlight-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="spotlightObjectName">
         <div class="spotlight-card">
 
           <!-- Encabezado del diálogo: Paso actual y puntos de avance -->
@@ -301,7 +303,8 @@
 
           <h2 id="victoryTitle" class="victory-title">¡Misión Cumplida! 🎉✨</h2>
           <p class="victory-subtitle">
-            ¡Has observado con gran atención y respondiste todas las preguntas sobre los <strong>5 objetos mágicos</strong>! Palabrín está fascinado con tus respuestas.
+            ¡Has observado con gran atención y respondiste todas las preguntas sobre los <strong>5 objetos
+              mágicos</strong>! Palabrín está fascinado con tus respuestas.
           </p>
 
           <!-- Estrellas de Celebración -->
@@ -316,25 +319,23 @@
           <!-- EXACTAMENTE LAS 4 OPCIONES REQUERIDAS -->
           <div class="victory-actions">
             <!-- Opción 1: Menú Principal -->
-            <a href="index.html" class="btn-kid btn-secondary-kid victory-btn"
-              data-audio="assets/audio/inicio.mp3">
+            <a href="index.html" class="btn-kid btn-secondary-kid victory-btn" data-audio="assets/audio/inicio.mp3">
               <i class="bi bi-house-door-fill"></i> Menú Principal
             </a>
 
             <!-- Opción 2: Reiniciar Juego -->
-            <button type="button" data-audio="assets/audio/reiniciar.mp3" id="btnRestartGame" class="btn-kid btn-primary-kid victory-btn">
+            <button type="button" data-audio="assets/audio/reiniciar.mp3" id="btnRestartGame"
+              class="btn-kid btn-primary-kid victory-btn">
               <i class="bi bi-arrow-clockwise"></i> Reiniciar Juego
             </button>
 
             <!-- Opción 3: Juego Anterior -->
-            <a href="QueSonido.html" class="btn-kid btn-emerald-kid victory-btn"
-              data-audio="assets/audio/sonido.mp3">
+            <a href="QueSonido.html" class="btn-kid btn-emerald-kid victory-btn" data-audio="assets/audio/sonido.mp3">
               <i class="bi bi-arrow-left-circle-fill"></i> Juego Anterior: ¿Qué Sonido Estás Escuchando?
             </a>
 
             <!-- Opción 4: Juego Siguiente -->
-            <a href="unirPalabras.html" class="btn-kid btn-magic-kid victory-btn"
-              data-audio="assets/audio/unamos.mp3">
+            <a href="unirPalabras.html" class="btn-kid btn-magic-kid victory-btn" data-audio="assets/audio/unamos.mp3">
               <i class="bi bi-arrow-right-circle-fill"></i> Siguiente Juego: Unamos las Palabras con sus Imágenes
             </a>
           </div>
@@ -371,4 +372,3 @@
 </body>
 
 </html>
-
